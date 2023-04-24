@@ -1,3 +1,9 @@
 {
+    "name": "Chorezilla",
+    "theme_color": "#fff",
+    "background_color": "#fff",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/",
     "gcm_sender_id": "601657685204"
 }
