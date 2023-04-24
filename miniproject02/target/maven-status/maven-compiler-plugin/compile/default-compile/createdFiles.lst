@@ -6,6 +6,5 @@ miniproject02/vttp/miniproject02/Miniproject02Application.class
 miniproject02/vttp/miniproject02/repositories/Queries.class
 miniproject02/vttp/miniproject02/services/MailService.class
 miniproject02/vttp/miniproject02/repositories/UserRepository.class
-miniproject02/vttp/miniproject02/repositories/TaskRepository.class
 miniproject02/vttp/miniproject02/models/User.class
 miniproject02/vttp/miniproject02/controllers/NotificationController.class
