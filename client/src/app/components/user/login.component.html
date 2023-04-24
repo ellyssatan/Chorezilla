@@ -1,0 +1,22 @@
+<mat-card class="card">
+    <mat-card-header>
+        <h2>Login Here</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email" placeholder="Enter Email">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" placeholder="Enter Password">
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-raised-button color="primary">Login</button>
+        </form>
+        <br>
+        <h4>New User? <a [routerLink]="['/new']">Register here</a></h4>
+    </mat-card-content>
+</mat-card>

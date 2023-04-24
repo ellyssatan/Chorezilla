@@ -1,0 +1,31 @@
+<div class="card">
+    <mat-card>
+        <mat-card-content>
+            <h2>Register a new user</h2>
+            <form [formGroup]="form" (ngSubmit)="register()">
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" formControlName="name" placeholder="Enter Name">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email" placeholder="Enter Email">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" placeholder="Enter Password">
+                </mat-form-field>
+                <div *ngIf="form.controls['password'].errors?.['minlength']" class="alert">
+                    Password must be at least 5 characters long.
+                </div>
+                <br>
+                <button type="submit" mat-raised-button color="primary">Register</button>
+            </form>
+            <br>
+            <h4>Already a member? <a [routerLink]="['/']">Login here</a></h4>
+        </mat-card-content>
+    </mat-card>
+</div>
+

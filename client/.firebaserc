@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mini2-fdd47": {
+      "hosting": {
+        "client": [
+          "mini2-fdd47"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mini2-fdd47"
+  }
+}

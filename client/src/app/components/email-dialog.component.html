@@ -1,0 +1,21 @@
+<mat-card>
+    <h2> {{title}} </h2>
+    <mat-form-field appearance="outline">
+        <mat-label>Recipient</mat-label>
+        <input matInput cdkFocusInitial [(ngModel)]="data.mail.email" />
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="{ mail: data.mail }">Send</button>
+        <button mat-button (click)="cancel()">Cancel</button>
+        <button
+            *ngIf="data.enableDelete"
+            mat-fab
+            color="primary"
+            aria-label="Delete"
+            [mat-dialog-close]="{ mail: data.mail, delete: true }">
+        <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</mat-card>
+    

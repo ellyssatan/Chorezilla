@@ -1,0 +1,83 @@
+<mat-toolbar color="primary">
+    <span>Chorezilla</span>
+</mat-toolbar>
+  
+<div class="content-wrapper">
+
+    <h2>Hello {{ user.name }}!</h2>
+    
+    <button (click)="newTask()" mat-button>
+        <mat-icon>add</mat-icon> Add Task
+    </button>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <h2>
+                Chorezilla's Manifesto (Todo)
+                <button (click)="getTasksList('todo'); sendMail('todo')" mat-button>
+                    <mat-icon><svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.218,2.268L2.477,8.388C2.13,8.535,2.164,9.05,2.542,9.134L9.33,10.67l1.535,6.787c0.083,0.377,0.602,0.415,0.745,0.065l6.123-14.74C17.866,2.46,17.539,2.134,17.218,2.268 M3.92,8.641l11.772-4.89L9.535,9.909L3.92,8.641z M11.358,16.078l-1.268-5.613l6.157-6.157L11.358,16.078z"></path>
+                    </svg></mat-icon> Send
+                </button>
+            </h2>
+
+            <mat-card
+                cdkDropList
+                id="todo"
+                #todoList="cdkDropList"
+                [cdkDropListData]="todo | async"
+                [cdkDropListConnectedTo]="[doneList, inProgressList]"
+                (cdkDropListDropped)="drop($event)"
+                class="list">
+                <p class="empty-label" *ngIf="(todo | async)?.length === 0">Empty list</p>
+                <app-task (edit)="editTask('todo', $event)" *ngFor="let task of todo | async" cdkDrag [task]="task"></app-task>
+            </mat-card>
+        </div>
+
+        <div class="container">
+            <h2>
+                Chorezilla's Work in Progress
+                <button (click)="getTasksList('inProgress'); sendMail('inProgress')" mat-button>
+                    <mat-icon><svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.218,2.268L2.477,8.388C2.13,8.535,2.164,9.05,2.542,9.134L9.33,10.67l1.535,6.787c0.083,0.377,0.602,0.415,0.745,0.065l6.123-14.74C17.866,2.46,17.539,2.134,17.218,2.268 M3.92,8.641l11.772-4.89L9.535,9.909L3.92,8.641z M11.358,16.078l-1.268-5.613l6.157-6.157L11.358,16.078z"></path>
+                    </svg></mat-icon> Send
+                </button>
+            </h2>
+
+            <mat-card
+                cdkDropList
+                id="inProgress"
+                #inProgressList="cdkDropList"
+                [cdkDropListData]="inProgress | async"
+                [cdkDropListConnectedTo]="[todoList, doneList]"
+                (cdkDropListDropped)="drop($event)"
+                class="list">
+                <p class="empty-label" *ngIf="(inProgress | async)?.length === 0">Empty list</p>
+                <app-task (edit)="editTask('inProgress', $event)" *ngFor="let task of inProgress | async" cdkDrag [task]="task"></app-task>
+            </mat-card>
+        </div>
+
+        <div class="container">
+            <h2>
+                Chorezilla's Champion Checklist
+                <button (click)="getTasksList('done'); sendMail('done')" mat-button>
+                    <mat-icon><svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.218,2.268L2.477,8.388C2.13,8.535,2.164,9.05,2.542,9.134L9.33,10.67l1.535,6.787c0.083,0.377,0.602,0.415,0.745,0.065l6.123-14.74C17.866,2.46,17.539,2.134,17.218,2.268 M3.92,8.641l11.772-4.89L9.535,9.909L3.92,8.641z M11.358,16.078l-1.268-5.613l6.157-6.157L11.358,16.078z"></path>
+                    </svg></mat-icon> Send
+                </button>
+            </h2>
+
+            <mat-card
+                cdkDropList
+                id="done"
+                #doneList="cdkDropList"
+                [cdkDropListData]="done | async"
+                [cdkDropListConnectedTo]="[todoList, inProgressList]"
+                (cdkDropListDropped)="drop($event)"
+                class="list">
+                <p class="empty-label" *ngIf="(done | async)?.length === 0">Empty list</p>
+                <app-task (edit)="editTask('done', $event)" *ngFor="let task of done | async" cdkDrag [task]="task"></app-task>
+            </mat-card>
+        </div>
+    </div>
+</div>

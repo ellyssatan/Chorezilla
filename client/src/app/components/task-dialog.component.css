@@ -1,0 +1,8 @@
+mat-card {
+    display: flex;
+    align-items: center;
+    height: max-content;
+    padding: 20px;
+    margin: 1em black solid;
+    background-color: lightblue;
+}
