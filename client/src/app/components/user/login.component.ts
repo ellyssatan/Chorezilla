@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     // send to svc to post to SB
     this.taskSvc.verifyUser(data)
       .then(response => {
-        console.log(">>> VERIFY USER \n", response)
+        // console.log(">>> VERIFY USER \n", response)
         if (response.email == data.email) {
           this.relaySvc.currentUser = response
           this.router.navigate(['/tasks']);
